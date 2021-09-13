@@ -15,7 +15,7 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
     //let's set up a default empty constructor

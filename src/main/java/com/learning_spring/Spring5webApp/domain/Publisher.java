@@ -15,7 +15,8 @@ public class Publisher {
     private String city;
     private String state;
     private Long zipCode;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)    //one publisher for many books
+    @JoinColumn(name = "publisher_id")   //tells Hibernate that publisher_id column tells us which publisher for Book entity record
     private Set<Book> books = new HashSet<>();
 
     public Publisher() {
